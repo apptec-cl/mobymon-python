@@ -31,7 +31,20 @@ git clone https://github.com/apptec-cl/mobymon-python
 cd mobymon-python
 ```
 
-### 2. Construir la Imagen de Docker
+### 2. Agregar ID's
+
+Entrar al archivo `mobius.py` y agregar los ID's de los MobyMons que se desean enfrentar.
+
+```python
+   def __init__(self):
+        self.mobymon_id         = "TU_ID_DE_MOBYMON" # Make sure to fill out this field
+        self.mode               = "training" # You can select 'training' to train or 'match' to play
+        self.match_id           = "TU_ID_DEL_MATCH" # Make sure to fill out this field
+        self.last_opponent_move = None
+        self.payload            = {"id": self.mobymon_id}
+```
+
+### 3. Construir la Imagen de Docker
 
 Para construir la imagen de Docker, ejecuta el siguiente comando en el directorio raíz del proyecto:
 
@@ -41,7 +54,7 @@ docker-compose build
 
 Esto construirá la imagen necesaria para ejecutar el campeonato.
 
-### 3. Ejecutar el Campeonato
+### 4. Ejecutar el Match
 
 Una vez que la imagen esté construida, puedes ejecutar el campeonato con:
 
@@ -49,9 +62,9 @@ Una vez que la imagen esté construida, puedes ejecutar el campeonato con:
 docker-compose up
 ```
 
-Este comando iniciará los contenedores y ejecutará la batalle de MobyMon. El resultado se mostrará en la consola.
+Este comando iniciará los contenedores y ejecutará la batalla de MobyMon. El resultado se mostrará en la consola.
 
-### 4. Detener los Contenedores
+### 5. Detener los Contenedores
 
 Después de que el match haya terminado, puedes detener y eliminar los contenedores utilizando:
 
