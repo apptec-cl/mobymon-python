@@ -32,7 +32,7 @@ class Fight:
         move = "attack" if attack else "defend"
         response = requests.post(f"{URL}/{NAMESPACE}/{self.mode}/{self.match_id}/{move}", json=self.payload).json()
         if response['data']['status'] == "round_current_played":
-            print(f"[MOVE] Whe are {'attacking' if attack else 'defending'}")
+            print(f"[MOVE] We are {'attacking' if attack else 'defending'}")
                 
     def status(self):
         return requests.post(f"{URL}/{NAMESPACE}/{self.mode}/{self.match_id}/status", json=self.payload).json()
